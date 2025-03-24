@@ -1,0 +1,73 @@
+// Light theme (default)
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7fafc;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --border-color: #e2e8f0;
+  --accent-color: #4299e1;
+  --input-bg: #ffffff;
+  --input-border: #e2e8f0;
+  --input-text: #2d3748;
+  --button-primary-bg: #4299e1;
+  --button-primary-text: #ffffff;
+  --hover-bg: #f7fafc;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+// Dark theme
+.dark-theme {
+  --bg-primary: #1a202c;
+  --bg-secondary: #2d3748;
+  --text-primary: #f7fafc;
+  --text-secondary: #e2e8f0;
+  --border-color: #4a5568;
+  --accent-color: #63b3ed;
+  --input-bg: #2d3748;
+  --input-border: #4a5568;
+  --input-text: #f7fafc;
+  --button-primary-bg: #63b3ed;
+  --button-primary-text: #1a202c;
+  --hover-bg: #2d3748;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+// Apply theme variables
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+// Global styles
+* {
+  box-sizing: border-box;
+}
+
+// Common elements styling
+input, textarea, select {
+  background-color: var(--input-bg);
+  border-color: var(--input-border);
+  color: var(--input-text);
+}
+
+button {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  border: none;
+  transition: opacity 0.3s;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+// Links
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

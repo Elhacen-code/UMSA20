@@ -1,0 +1,138 @@
+.user-detail-container {
+  padding: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  overflow: hidden;
+
+  .user-detail-header {
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    padding: 2rem;
+    color: white;
+
+    .avatar-section {
+      text-align: center;
+
+      .avatar {
+        width: 80px;
+        height: 80px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 2rem;
+        color: #4f46e5;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .user-name {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .user-role {
+        display: inline-block;
+        padding: 0.25rem 1rem;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        font-size: 0.875rem;
+
+        &.admin {
+          background: rgba(255, 255, 255, 0.3);
+        }
+      }
+    }
+  }
+
+  .user-detail-content {
+    padding: 1.5rem;
+
+    .detail-card {
+      background: #f8fafc;
+      border-radius: 8px;
+      overflow: hidden;
+
+      .card-header {
+        padding: 1rem;
+        background: #f1f5f9;
+        color: #475569;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        i {
+          color: #6366f1;
+        }
+      }
+
+      .card-content {
+        padding: 1rem;
+
+        .detail-item {
+          display: flex;
+          align-items: center;
+          padding: 0.75rem 0;
+          border-bottom: 1px solid #e2e8f0;
+
+          &:last-child {
+            border-bottom: none;
+          }
+
+          .label {
+            min-width: 100px;
+            color: #64748b;
+            font-weight: 500;
+          }
+
+          .value {
+            color: #334155;
+            flex: 1;
+
+            &.status-badge {
+              display: inline-block;
+              padding: 0.25rem 0.75rem;
+              border-radius: 20px;
+              font-size: 0.875rem;
+              font-weight: 500;
+
+              &.active {
+                background: #dcfce7;
+                color: #166534;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.no-user-selected {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+
+  .placeholder-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #cbd5e1;
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0;
+  }
+}

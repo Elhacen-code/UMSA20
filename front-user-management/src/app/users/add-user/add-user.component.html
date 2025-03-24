@@ -1,0 +1,64 @@
+<div class="add-user-container">
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="add-user-form">
+    <h2>Add New User</h2>
+    
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input
+        type="text"
+        id="username"
+        formControlName="username"
+        class="form-control"
+        [class.is-invalid]="userForm.get('username')?.invalid && userForm.get('username')?.touched"
+      >
+      <div class="error-message" *ngIf="userForm.get('username')?.invalid && userForm.get('username')?.touched">
+        <span *ngIf="userForm.get('username')?.errors?.['required']">Username is required</span>
+        <span *ngIf="userForm.get('username')?.errors?.['minlength']">Username must be at least 3 characters</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        class="form-control"
+        [class.is-invalid]="userForm.get('email')?.invalid && userForm.get('email')?.touched"
+      >
+      <div class="error-message" *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched">
+        <span *ngIf="userForm.get('email')?.errors?.['required']">Email is required</span>
+        <span *ngIf="userForm.get('email')?.errors?.['email']">Please enter a valid email</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        class="form-control"
+        [class.is-invalid]="userForm.get('password')?.invalid && userForm.get('password')?.touched"
+      >
+      <div class="error-message" *ngIf="userForm.get('password')?.invalid && userForm.get('password')?.touched">
+        <span *ngIf="userForm.get('password')?.errors?.['required']">Password is required</span>
+        <span *ngIf="userForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select
+        id="role"
+        formControlName="role"
+        class="form-control"
+      >
+        <option value="User">User</option>
+        <option value="Admin">Admin</option>
+      </select>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="userForm.invalid">Add User</button>
+  </form>
+</div>

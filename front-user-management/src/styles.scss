@@ -1,0 +1,72 @@
+@import 'styles/themes';
+
+/* You can add global styles to this file, and also import other style files */
+
+/* Apply theme variables globally */
+* {
+  color: var(--text-primary);
+}
+
+.mat-mdc-card,
+.mat-mdc-dialog-container,
+.mat-mdc-menu-panel {
+  background-color: var(--bg-primary) !important;
+  color: var(--text-primary) !important;
+}
+
+.mat-mdc-button,
+.mat-mdc-raised-button,
+.mat-mdc-outlined-button {
+  color: var(--text-primary) !important;
+  background-color: var(--bg-secondary) !important;
+  border-color: var(--border-color) !important;
+}
+
+.mat-mdc-form-field {
+  .mat-mdc-text-field-wrapper {
+    background-color: var(--bg-secondary);
+  }
+  
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__leading,
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__notch,
+  .mdc-text-field--outlined:not(.mdc-text-field--disabled) .mdc-notched-outline__trailing {
+    border-color: var(--border-color);
+  }
+
+  .mat-mdc-form-field-label {
+    color: var(--text-secondary);
+  }
+}
+
+.mat-mdc-table {
+  background-color: var(--bg-primary);
+  
+  .mat-mdc-header-cell,
+  .mat-mdc-cell {
+    color: var(--text-primary);
+    border-bottom-color: var(--border-color);
+  }
+}
+
+.mat-divider {
+  border-color: var(--border-color) !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-color);
+}

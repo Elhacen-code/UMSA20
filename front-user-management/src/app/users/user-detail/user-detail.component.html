@@ -1,0 +1,32 @@
+<div class="user-detail-container" *ngIf="user">
+  <div class="user-detail-header">
+    <div class="avatar-section">
+      <div class="avatar">{{ user.username.charAt(0) | uppercase }}</div>
+      <div class="user-name">{{ user.username }}</div>
+      <div class="user-role" [class.admin]="user.role === 'Admin'">{{ user.role }}</div>
+    </div>
+  </div>
+  <div class="user-detail-content">
+    <div class="detail-card">
+      <div class="card-header">
+        <i class="fas fa-info-circle"></i>
+        <span>Basic Information</span>
+      </div>
+      <div class="card-content">
+        <div class="detail-item">
+          <span class="label">Email</span>
+          <span class="value">{{ user.email }}</span>
+        </div>
+        <div class="detail-item">
+          <span class="label">Status</span>
+          <span class="value status-badge active">Active</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="no-user-selected" *ngIf="!user">
+  <i class="fas fa-user-circle placeholder-icon"></i>
+  <p>Select a user to view details</p>
+</div>
