@@ -42,10 +42,11 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody User user) {
+        System.out.println("Here");
+
         Authentication authentication = authenticationProvider.authenticate(
-            new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword())
+            new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword())
         );
-        
         User authenticatedUser = (User) authentication.getPrincipal();
         String jwtToken = jwtService.generateToken(authenticatedUser);
         

@@ -13,7 +13,6 @@ import { ThemeService } from '../services/theme.service';
 export class SidebarComponent {
   menuItems = [
     { path: '/users', icon: '👥', label: 'Users' },
-    { path: '/settings', icon: '⚙️', label: 'Settings' }
   ];
 
   isCollapsed = false;
