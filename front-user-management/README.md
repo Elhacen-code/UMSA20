@@ -1,27 +1,105 @@
-# UserManagement
+# User Management Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+This is the frontend application for the User Management System built with Angular. It provides a modern, responsive user interface for managing users, authentication, and authorization.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- User authentication and authorization
+- User management interface
+- Role-based access control
+- Responsive design
+- Integration with RESTful backend APIs
 
-## Code scaffolding
+## Prerequisites
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Node.js (v14 or higher)
+- npm (Node Package Manager)
+- Angular CLI
+
+## Installation
+
+1. Clone the repository
+2. Navigate to the project directory:
+   ```bash
+   cd front-user-management
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+## Development Server
+
+Run `ng serve` for a development server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## Project Structure
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+src/
+├── app/                 # Main application code
+│   ├── components/      # Reusable UI components
+│   ├── services/        # API and business logic services
+│   ├── models/          # Data models and interfaces
+│   ├── guards/          # Route guards for authentication
+│   └── shared/          # Shared utilities and components
+├── assets/             # Static assets (images, icons)
+├── environments/       # Environment configuration
+└── styles/            # Global styles and themes
+```
 
-## Running end-to-end tests
+## Features Implementation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Authentication
+- Login/Logout functionality
+- JWT token management
+- Protected routes
 
-## Further help
+### User Management
+- User listing with pagination
+- User creation and editing
+- User deletion
+- Role assignment
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Role Management
+- Role listing
+- Role creation
+- Permission assignment
+
+## Code Style Guidelines
+
+- Follow Angular style guide
+- Use TypeScript features appropriately
+- Implement proper error handling
+- Write unit tests for components and services
+
+## Testing
+
+- Run `ng test` to execute unit tests via Karma
+- Run `ng e2e` to execute end-to-end tests
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## Integration with Backend
+
+The frontend application communicates with the Spring Boot backend through RESTful APIs. Ensure the backend server is running on `http://localhost:8080` for proper functionality.
+
+## Security Considerations
+
+- Implement proper input validation
+- Use secure HTTP headers
+- Follow OWASP security guidelines
+- Implement proper session management
+
+## License
+
+This project is licensed under the MIT License.
