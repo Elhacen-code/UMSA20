@@ -1,6 +1,6 @@
 <nav>
   <div class="container">
-    <div *ngIf="authService.isAuthenticated()">
+    <div *ngIf="authService.isAuthenticated()" class="nav-right">
       <button (click)="logout()">
         Logout
       </button>
