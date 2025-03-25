@@ -27,6 +27,34 @@
   }
 }
 
+#action-btn-delete {
+  background: linear-gradient(to right, #99606d, #972c19);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  &:hover {
+    background: #c82333;
+  }
+}
+
+#action-btn-edit{
+  background: linear-gradient(to right, #6d997e, #2c9757);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  &:hover {
+    background: #2c9757;
+  }
+
+}
+
+
 .add-user-btn {
   background: #50617e;
   color: white;

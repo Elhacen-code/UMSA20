@@ -1,11 +1,13 @@
-nav {
+
   .container {
     display: flex;
     justify-content: flex-end;
     padding: 0.5rem 1rem;
 
+
+
     button {
-      background: linear-gradient(to right, #ff4b2b, #ff416c);
+      background: linear-gradient(to right, #99606d, #972c19);
       border: none;
       border-radius: 20px;
       color: white;
@@ -17,7 +19,7 @@ nav {
       &:hover {
         transform: translateY(-2px);
         box-shadow: 0 4px 8px rgba(255, 65, 108, 0.3);
-        background: linear-gradient(to right, #ff416c, #ff4b2b);
+        background: linear-gradient(to right, #972c19, #99606d);
       }
 
       &:active {
@@ -26,4 +28,3 @@ nav {
       }
     }
   }
-}

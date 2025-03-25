@@ -23,8 +23,8 @@
               <span class="role-badge" *ngFor="let role of user.roles">{{ role.name }}</span>
             </td>
             <td class="actions">
-              <button class="action-btn edit" (click)="editUser(user.id)">Edit</button>
-              <button class="action-btn delete" (click)="delete(user.id)">Delete</button>
+              <button class="action-btn edit" id="action-btn-edit" (click)="editUser(user.id)">Edit</button>
+              <button class="action-btn delete" id="action-btn-delete" (click)="delete(user.id)">Delete</button>
             </td>
           </tr>
         </tbody>

@@ -8,7 +8,7 @@ import { AuthService } from '../services/auth.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './nav.component.html',
-  styles: []
+  styleUrl: './nav.component.scss'
 })
 export class NavComponent {
   constructor(
