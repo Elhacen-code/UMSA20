@@ -32,7 +32,7 @@ export class EditUserComponent implements OnInit {
       this.userForm.patchValue({
         username: user.username,
         email: user.email,
-        role: user.role
+        role: user.roles
       });
     });
   }

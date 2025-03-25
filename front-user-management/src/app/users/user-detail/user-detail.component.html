@@ -3,7 +3,7 @@
     <div class="avatar-section">
       <div class="avatar">{{ user.username.charAt(0) | uppercase }}</div>
       <div class="user-name">{{ user.username }}</div>
-      <div class="user-role" [class.admin]="user.role === 'Admin'">{{ user.role }}</div>
+      <div class="user-role" [class.admin]="isAdmin()">{{ user.roles[0]!.name }}</div>
     </div>
   </div>
   <div class="user-detail-content">

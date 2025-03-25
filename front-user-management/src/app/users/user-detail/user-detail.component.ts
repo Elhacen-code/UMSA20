@@ -11,4 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class UserDetailComponent {
   @Input() user: User | null = null;
+
+  isAdmin(): boolean {
+    return this.user?.roles.some(role => role.name === 'Admin') || false;
+  }
 }

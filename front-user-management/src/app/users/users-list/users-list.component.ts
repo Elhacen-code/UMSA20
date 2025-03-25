@@ -38,18 +38,19 @@ export class UsersListComponent implements OnInit {
     });
   }
 
-
   sortUsers(column: keyof User): void {
-    this.users.sort((a, b) => {
-      const valueA = a[column];
-      const valueB = b[column];
-      
-      if (valueA === undefined && valueB === undefined) return 0;
-      if (valueA === undefined) return 1;
-      if (valueB === undefined) return -1;
-      
-      return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
-    });
+    if (column === 'username' || column === 'email') {
+      this.users.sort((a, b) => {
+        const valueA = a[column];
+        const valueB = b[column];
+        
+        if (valueA === undefined && valueB === undefined) return 0;
+        if (valueA === undefined) return 1;
+        if (valueB === undefined) return -1;
+        
+        return valueA < valueB ? -1 : valueA > valueB ? 1 : 0;
+      });
+    }
   }
 
   selectUser(user: User): void {
