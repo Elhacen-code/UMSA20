@@ -119,3 +119,22 @@
     box-shadow: none;
   }
 }
+
+.login-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+
+  a {
+    color: #4299e1;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #2b6cb0;
+      text-decoration: underline;
+    }
+  }
+}

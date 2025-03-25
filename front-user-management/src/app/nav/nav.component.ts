@@ -7,7 +7,7 @@ import { AuthService } from '../services/auth.service';
   selector: 'app-nav',
   standalone: true,
   imports: [CommonModule],
-  template: '',
+  templateUrl: './nav.component.html',
   styles: []
 })
 export class NavComponent {
