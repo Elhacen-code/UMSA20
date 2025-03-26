@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { User } from '../../models/user.model';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 import { UserService } from '../../services/user.service';
+import { PageResponse } from '../../services/user.service';
 
 @Component({
   selector: 'app-users-list',
@@ -17,6 +18,10 @@ export class UsersListComponent implements OnInit {
   loading = false;
   error: string | null = null;
   selectedUser: User | null = null;
+  currentPage = 0;
+  pageSize = 10;
+  totalPages = 0;
+  totalElements = 0;
 
   constructor(
     private router: Router,
@@ -24,10 +29,16 @@ export class UsersListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers(): void {
     this.loading = true;
-    this.userService.getUsers().subscribe({
-      next: (users) => {
-        this.users = users;
+    this.userService.getUsers(this.currentPage, this.pageSize).subscribe({
+      next: (response: PageResponse<User>) => {
+        this.users = response.content;
+        this.totalPages = response.totalPages;
+        this.totalElements = response.totalElements;
         this.loading = false;
       },
       error: (err) => {
@@ -36,6 +47,11 @@ export class UsersListComponent implements OnInit {
         console.error('Error loading users:', err);
       }
     });
+  }
+
+  onPageChange(page: number): void {
+    this.currentPage = page;
+    this.loadUsers();
   }
 
   sortUsers(column: keyof User): void {
@@ -61,6 +77,10 @@ export class UsersListComponent implements OnInit {
     this.userService.deleteUser(id).subscribe({
       next: () => {
         this.users = this.users.filter(user => user.id !== id);
+        if (this.users.length === 0 && this.currentPage > 0) {
+          this.currentPage--;
+          this.loadUsers();
+        }
       },
       error: (err) => {
         this.error = 'Failed to delete user';
