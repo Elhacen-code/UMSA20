@@ -44,4 +44,9 @@ public class UserController {
         userService.deleteUser(id);
         return ResponseEntity.ok().build();
     }
+
+    @PostMapping("/{userId}/roles/{roleId}")
+    public User addRoleToUser(@PathVariable("userId") Long userId, @PathVariable("roleId") Long roleId) {
+        return userService.addRoleToUser(userId, roleId);
+    }
 }

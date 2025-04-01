@@ -25,6 +25,25 @@
     margin: 0;
     color: #333;
   }
+
+  .header-buttons {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.add-role-btn {
+  background: #50617e;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background: #2e3748;
+  }
 }
 
 #action-btn-delete {
@@ -35,9 +54,9 @@
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.2s;
-  &:hover {
-    background: #c82333;
-  }
+  // &:hover {
+  //   background: #c82333;
+  // }
 }
 
 #action-btn-edit{

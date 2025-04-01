@@ -1,5 +1,6 @@
 package com.example.springusermanagement.service;
 
+import com.example.springusermanagement.model.Role;
 import com.example.springusermanagement.model.User;
 import com.example.springusermanagement.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,5 +63,13 @@ public class UserService {
     public User getUserByUsername(String username) {
         return userRepository.findByUsername(username)
                 .orElseThrow(() -> new RuntimeException("User not found with username: " + username));
+    }
+
+    public User addRoleToUser(Long userId, Long roleId) {
+        System.out.println("Adding role with ID " + roleId + " to user with ID " + userId);
+        User user = getUserById(userId);
+        Role role = roleService.getRoleById(roleId);
+        user.getRoles().add(role);
+        return userRepository.save(user);
     }
 }

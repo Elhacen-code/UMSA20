@@ -16,4 +16,14 @@ public class RoleService {
                 .orElseGet(() -> roleRepository.findByName("USER")
                 .orElseThrow(() -> new RuntimeException("Default role not found")));
     }
+
+    public Role getRoleByName(String name) {
+        return roleRepository.findByName(name)
+                .orElseThrow(() -> new RuntimeException("Role not found with name: " + name));
+    }
+
+    public Role getRoleById(Long id) {
+        return roleRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Role not found with id: " + id));
+    }
 }

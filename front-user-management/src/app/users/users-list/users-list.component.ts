@@ -5,13 +5,14 @@ import { User } from '../../models/user.model';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 import { UserService } from '../../services/user.service';
 import { PageResponse } from '../../services/user.service';
+import { CustomRoleDialogComponent } from '../custom-role-dialog/custom-role-dialog.component';
 
 @Component({
   selector: 'app-users-list',
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.scss'],
   standalone: true,
-  imports: [CommonModule, UserDetailComponent, RouterLink]
+  imports: [CommonModule, UserDetailComponent, RouterLink, CustomRoleDialogComponent]
 })
 export class UsersListComponent implements OnInit {
   users: User[] = [];
@@ -22,6 +23,12 @@ export class UsersListComponent implements OnInit {
   pageSize = 10;
   totalPages = 0;
   totalElements = 0;
+  showRoleDialog = false;
+  roles = [
+    { id: 1, name: 'Admin' },
+    { id: 2, name: 'User' },
+    { id: 3, name: 'Manager' }
+  ];
 
   constructor(
     private router: Router,
@@ -91,5 +98,36 @@ export class UsersListComponent implements OnInit {
 
   editUser(id: number): void {
     this.router.navigate(['/users/edit', id]);
+  }
+
+  addRoleToUser(): void {
+    if (!this.selectedUser) {
+      alert('Please select a user first');
+      return;
+    }
+    this.showRoleDialog = true;
+  }
+
+  onCloseDialog(): void {
+    this.showRoleDialog = false;
+  }
+
+  onAssignRole(roleId: number): void {
+    if (this.selectedUser) {
+      this.userService.assignRole(this.selectedUser.id, roleId).subscribe({
+        next: (updatedUser) => {
+          const index = this.users.findIndex(u => u.id === updatedUser.id);
+          if (index !== -1) {
+            this.users[index] = updatedUser;
+            this.selectedUser = updatedUser;
+          }
+          this.showRoleDialog = false;
+        },
+        error: (err) => {
+          console.error('Error adding role:', err);
+          alert('Failed to add role to user');
+        }
+      });
+    }
   }
 }
