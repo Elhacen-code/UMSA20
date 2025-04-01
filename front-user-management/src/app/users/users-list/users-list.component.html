@@ -1,7 +1,7 @@
 <div class="users-page-layout">
   <div class="users-container">
     <div class="users-header">
-      <h1>List of users</h1>
+      <h1>User Management</h1>
       <div class="header-buttons">
         <button class="add-role-btn" (click)="addRoleToUser()">Assigne Role</button>
         <button class="add-user-btn" routerLink="/users/add">Add New User</button>
@@ -59,8 +59,8 @@
 
 <app-custom-role-dialog
   *ngIf="showRoleDialog"
-  [user]="selectedUser"
-  [roles]="roles"
+  user="selectedUser"
+  roles="roles"
   (closeDialog)="onCloseDialog()"
   (assignRole)="onAssignRole($event)">
 </app-custom-role-dialog>

@@ -1,7 +1,7 @@
 .sidebar {
   width: 250px;
   height: 100vh;
-  background: linear-gradient(135deg, #50617e 0%, #4a5568 100%);
+  background: var(--primary-color);
   color: white;
   position: fixed;
   left: 0;

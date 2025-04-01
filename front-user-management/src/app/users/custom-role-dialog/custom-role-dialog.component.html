@@ -1,0 +1,29 @@
+<div class="dialog-overlay" (click)="onOverlayClick($event)">
+    <div class="dialog-container">
+      <div class="dialog-header">
+        <h2>Assign Role to User</h2>
+        <button class="close-button" (click)="close()">×</button>
+      </div>
+      <div class="dialog-content">
+        <form [formGroup]="roleForm">
+          <div class="form-group">
+            <label>User</label>
+            <input type="text" [value]="user?.username" readonly class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Role</label>
+            <select formControlName="roleId" class="form-control">
+              <option value="">Select a role</option>
+              <option *ngFor="let role of roles" [value]="role.id">
+                {{ role.name }}
+              </option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="dialog-actions">
+        <button class="btn-secondary" (click)="close()">Cancel</button>
+        <button class="btn-primary" [disabled]="!roleForm.valid" (click)="onSubmit()">Assign</button>
+      </div>
+    </div>
+  </div>

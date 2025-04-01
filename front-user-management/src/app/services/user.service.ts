@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { User, Role } from '../models/user.model';
+import { User } from '../models/user.model';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { Role } from '../models/role.model';
 
 export interface PageResponse<T> {
   content: T[];

@@ -18,5 +18,10 @@ export const routes: Routes = [
     component: AddUserComponent,
     canActivate: [AuthGuard]
   },
+  {
+    path: 'roles',
+    loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule),
+    canActivate: [AuthGuard]
+  },
   { path: '', redirectTo: '/login', pathMatch: 'full' }
 ];
