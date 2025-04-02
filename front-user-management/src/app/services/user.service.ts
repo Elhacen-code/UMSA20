@@ -54,4 +54,8 @@ export class UserService {
   removeRole(userId: number, roleId: number): Observable<User> {
     return this.http.delete<User>(`${this.apiUrl}/users/${userId}/roles/${roleId}`);
   }
+
+  toggleUserAccount(userId: number): Observable<void> {
+    return this.http.post<void>(`${this.apiUrl}/users/${userId}/toggle-status`, {});
+  }
 }

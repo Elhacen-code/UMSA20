@@ -25,8 +25,9 @@
             <td>
               <span class="role-badge" *ngFor="let role of user.roles">{{ role.name }}</span>
             </td>
-            <td class="actions">
+            <td class="actions d-flex">
               <button class="action-btn edit" id="action-btn-edit" (click)="editUser(user.id)">Edit</button>
+              <button class="action-btn toggle" id="action-btn-toggle" (click)="toggleUserAccount(user.id)">{{ user.enabled ? 'Disable' : 'Enable' }}</button>
               <button class="action-btn delete" id="action-btn-delete" (click)="delete(user.id)">Delete</button>
             </td>
           </tr>

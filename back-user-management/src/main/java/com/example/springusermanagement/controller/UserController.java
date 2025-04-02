@@ -49,4 +49,9 @@ public class UserController {
     public User addRoleToUser(@PathVariable("userId") Long userId, @PathVariable("roleId") Long roleId) {
         return userService.addRoleToUser(userId, roleId);
     }
+
+    @PutMapping("/{userId}")
+    public Boolean toggleUserAccount(Long userId) {
+        return userService.toggleUserAccount(userId);
+    }
 }

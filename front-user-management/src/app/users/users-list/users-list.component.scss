@@ -142,27 +142,39 @@
   white-space: nowrap;
 
   .action-btn {
-    padding: 4px 8px;
-    border: none;
-    border-radius: 4px;
-    margin-right: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
     cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+    margin-right: 10px;
 
     &.edit {
-      background: #28a745;
-      color: white;
+      background: #edf2f7;
+      color: #50617e;
 
       &:hover {
-        background: #218838;
+        background: #e2e8f0;
+      }
+    }
+
+    &.toggle {
+      background: #0e639b;
+      color: #d8dfe3;
+
+      &:hover {
+        background: #236490;
       }
     }
 
     &.delete {
-      background: #dc3545;
-      color: white;
+      background: #fee2e2;
+      color: #dc2626;
 
       &:hover {
-        background: #c82333;
+        background: #fecaca;
       }
     }
   }

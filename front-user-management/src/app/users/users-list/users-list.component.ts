@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { User } from '../../models/user.model';
+import { catchError, tap } from 'rxjs/operators';
 import { UserDetailComponent } from '../user-detail/user-detail.component';
 import { UserService } from '../../services/user.service';
 import { PageResponse } from '../../services/user.service';
@@ -78,6 +79,22 @@ export class UsersListComponent implements OnInit {
 
   selectUser(user: User): void {
     this.selectedUser = user;
+  }
+
+  toggleUserAccount(id: number): void {
+    this.userService.toggleUserAccount(id).pipe(
+      tap(() => {
+        const user = this.users.find(u => u.id === id);
+        if (user) {
+          user.enabled = !user.enabled;
+        }
+      }),
+      catchError((err) => {
+        this.error = 'Failed to toggle user account';
+        console.error('Error toggling user account:', err);
+        throw err;
+      })
+    ).subscribe();
   }
 
   delete(id: number): void {
